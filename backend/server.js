@@ -1,18 +1,20 @@
-const express = require('express');
-const cors = require('cors');
-const app = express();
-const PORT = 5000; // kamu bisa ubah kalau perlu
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import db from "./config/db.js";
+import menuRoutes from "./routes/menuRoutes.js";
 
-// Middleware
+dotenv.config();
+const app = express();
+
 app.use(cors());
 app.use(express.json());
 
-// Routing contoh
-app.get('/', (req, res) => {
-  res.send('Server backend MAKANYUK berjalan!');
+app.use("/api/menu", menuRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Backend MakanYuk aktif 🚀");
 });
 
-// Jalankan server
-app.listen(PORT, () => {
-  console.log(`Server berjalan di http://localhost:${PORT}`);
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
