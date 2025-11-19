@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Vouchers</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#ec7f13",
+            "background-light": "#f8f7f6",
+            "background-dark": "#221910",
+            "text-light": "#181411",
+            "text-dark": "#ffffff",
+            "subtext-light": "#897561",
+            "subtext-dark": "#a1a1a1",
+            "border-light": "#e6e0db",
+            "border-dark": "#3a3028",
+          },
+          fontFamily: {
+            display: ["Work Sans", "Noto Sans", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+  <div class="relative flex flex-col min-h-screen overflow-x-hidden">
+    <div class="flex flex-col grow">
+
+      <!-- 🔹 HEADER START -->
+      <header
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+        <div class="flex items-center justify-between max-w-7xl mx-auto px-6 md:px-10 lg:px-20 py-3">
+
+          <!-- 🔸 Logo -->
+          <div class="flex items-center gap-4 text-text-light dark:text-text-dark">
+            <div class="size-6 text-primary">
+              <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"
+                  fill-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h1 class="text-xl font-bold leading-tight tracking-[-0.015em]">MakanYuk!</h1>
+          </div>
+
+          <!-- 🔸 Navigation (rata kanan) -->
+          <div class="flex items-center gap-6 ml-auto">
+            <nav class="hidden md:flex items-center gap-9">
+              <a class="text-text-light dark:text-white text-sm font-medium hover:text-primary transition-colors"
+                href="home_page.html">Home</a>
+              <a class="text-text-light dark:text-white text-sm font-medium hover:text-primary transition-colors"
+                href="menu_page.html">Menu</a>
+              <a class="text-primary text-sm font-bold" href="#">Vouchers</a>
+              <a class="text-text-light dark:text-white text-sm font-medium hover:text-primary transition-colors"
+                href="p">About Us</a>
+            </nav>
+
+            <!-- 🔸 Search -->
+            <label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex items-stretch rounded-lg border border-border-light dark:border-border-dark h-full">
+                <div
+                  class="text-subtext-light dark:text-subtext-dark flex items-center justify-center pl-4 border-r border-border-light dark:border-border-dark">
+                  <span class="material-symbols-outlined">search</span>
+                </div>
+                <input id="searchInput" type="text" placeholder="Search voucher..." autocomplete="off"
+                  class="flex-1 px-2 text-sm bg-transparent outline-none dark:placeholder-gray-400" />
+              </div>
+            </label>
+          </div>
+        </div>
+      </header>
+      <!-- 🔹 HEADER END -->
+
+      <!-- 🔸 MAIN CONTENT START -->
+      <main class="px-4 md:px-10 lg:px-20 xl:px-40 py-10 flex justify-center">
+        <div class="flex flex-col w-full max-w-[960px]">
+
+          <!-- Title Section -->
+          <section class="flex flex-col gap-2 mb-6">
+            <h2 class="text-4xl font-black text-[#181411] dark:text-white">Vouchers</h2>
+            <p class="text-base text-[#897561] dark:text-gray-400">Gunakan voucher untuk mendapatkan diskon dan
+              menikmati hidangannya!</p>
+          </section>
+
+          <!-- Tabs -->
+          <nav id="tabs" class="flex border-b border-[#e6e0db] dark:border-gray-700 gap-8 mb-6 px-4">
+            <button class="tab-button flex items-center gap-2 pb-[13px] pt-4 border-b-[3px] transition-colors"
+              data-tab="active">
+              <span class="material-symbols-outlined text-lg">check_circle</span>
+              <p class="text-sm font-bold">Active</p>
+            </button>
+            <button class="tab-button flex items-center gap-2 pb-[13px] pt-4 border-b-[3px] transition-colors"
+              data-tab="upcoming">
+              <span class="material-symbols-outlined text-lg">hourglass_top</span>
+              <p class="text-sm font-bold">Upcoming</p>
+            </button>
+            <button class="tab-button flex items-center gap-2 pb-[13px] pt-4 border-b-[3px] transition-colors"
+              data-tab="expired">
+              <span class="material-symbols-outlined text-lg">cancel</span>
+              <p class="text-sm font-bold">Expired</p>
+            </button>
+          </nav>
+
+          <!-- Voucher Content -->
+          <section>
+            <!-- Active -->
+            <div class="tab-content" data-content="active">
+              <div class="grid grid-cols-1 gap-6 p-4">
+                <div
+                  class="voucher-item flex flex-col xl:flex-row bg-white dark:bg-background-dark/50 rounded-lg shadow hover:shadow-lg transition-shadow">
+                  <div
+                    class="w-full xl:w-1/3 bg-cover bg-center aspect-video xl:aspect-square rounded-t-lg xl:rounded-l-lg"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCr5w0pqjjt_2qSxNuWafw6lBIwISEntAZBym9FLVd-BE_WNrrLHOiItGYFySHjEtHs8d1GqcOI4wf1ajOgrBsxS374S8A2p2oZBsCRUdT4MC2v-B5u7lkmKYvdmmZRF1D1YPZYL09ttCoRWNZ443YsMAYbiUawhe90pFRdl-2XIZcp94wg1v14nxFbM3174_iTb8ntCkYuekRiPI_2mn2aL7VFvNWSBWSXtceIk8liRyJXrErGbrLM9X2Pp9lOwPSPWobfWVQEb2U');">
+                  </div>
+                  <div class="flex flex-col gap-1 p-4 justify-center">
+                    <div class="flex items-center gap-2">
+                      <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                      <p class="text-sm text-[#897561] dark:text-gray-400">Active</p>
+                    </div>
+                    <h3 class="voucher-title text-lg font-bold">Pisang</h3>
+                    <p class="voucher-desc text-primary text-lg font-bold">20% Off</p>
+                    <p class="text-sm text-[#897561] dark:text-gray-400">Valid 27–29 Oct 2023, minimum spend $50.</p>
+                  </div>
+                </div>
+
+                <div
+                  class="voucher-item flex flex-col xl:flex-row bg-white dark:bg-background-dark/50 rounded-lg shadow hover:shadow-lg transition-shadow">
+                  <div
+                    class="w-full xl:w-1/3 bg-cover bg-center aspect-video xl:aspect-square rounded-t-lg xl:rounded-l-lg"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCr5w0pqjjt_2qSxNuWafw6lBIwISEntAZBym9FLVd-BE_WNrrLHOiItGYFySHjEtHs8d1GqcOI4wf1ajOgrBsxS374S8A2p2oZBsCRUdT4MC2v-B5u7lkmKYvdmmZRF1D1YPZYL09ttCoRWNZ443YsMAYbiUawhe90pFRdl-2XIZcp94wg1v14nxFbM3174_iTb8ntCkYuekRiPI_2mn2aL7VFvNWSBWSXtceIk8liRyJXrErGbrLM9X2Pp9lOwPSPWobfWVQEb2U');">
+                  </div>
+                  <div class="flex flex-col gap-1 p-4 justify-center">
+                    <div class="flex items-center gap-2">
+                      <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                      <p class="text-sm text-[#897561] dark:text-gray-400">Active</p>
+                    </div>
+                    <h3 class="voucher-title text-lg font-bold">Weekend Special</h3>
+                    <p class="voucher-desc text-primary text-lg font-bold">20% Off</p>
+                    <p class="text-sm text-[#897561] dark:text-gray-400">Valid 27–29 Oct 2023, minimum spend $50.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Upcoming -->
+            <div class="tab-content" data-content="upcoming">
+              <div class="grid grid-cols-1 gap-6 p-4">
+                <div
+                  class="voucher-item flex flex-col xl:flex-row bg-white dark:bg-background-dark/50 rounded-lg shadow hover:shadow-lg transition-shadow">
+                  <div
+                    class="w-full xl:w-1/3 bg-cover bg-center aspect-video xl:aspect-square rounded-t-lg xl:rounded-l-lg"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDc_xkyTM9nRG-EKEf7Gp_HAxt1u5cqdEBJq0IFNuj3VQLZSsCwT2P8fdD0Lx0qUuo97OAs6JfMN5VHG_iLZ_c-G10UULWrqp85KsaYHmgPKBnBPgi1eQMfcKpvTPNWQdQcLCMR39MaMOTZEbFsTiwCvv5VbxSRkJmdDOzP3OeVDTn4ceX3XIxnGnloiosRy0WVXIIl0N61SVlMGlfIK5PePnISLu8MnBSdWYS7wXQRheQDUnLjOs6EkDgVsWjxl5mFu-t751aPkWc');">
+                  </div>
+                  <div class="flex flex-col gap-1 p-4 justify-center">
+                    <div class="flex items-center gap-2">
+                      <div class="w-2.5 h-2.5 rounded-full bg-orange-400"></div>
+                      <p class="text-sm text-[#897561] dark:text-gray-400">Upcoming</p>
+                    </div>
+                    <h3 class="voucher-title text-lg font-bold">Jus</h3>
+                    <p class="voucher-desc text-primary text-lg font-bold">Free Drink</p>
+                    <p class="text-sm text-[#897561] dark:text-gray-400">Valid 1–15 Nov 2023, dine-in only.</p>
+                  </div>
+                </div>
+
+                <div
+                  class="voucher-item flex flex-col xl:flex-row bg-white dark:bg-background-dark/50 rounded-lg shadow hover:shadow-lg transition-shadow">
+                  <div
+                    class="w-full xl:w-1/3 bg-cover bg-center aspect-video xl:aspect-square rounded-t-lg xl:rounded-l-lg"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDc_xkyTM9nRG-EKEf7Gp_HAxt1u5cqdEBJq0IFNuj3VQLZSsCwT2P8fdD0Lx0qUuo97OAs6JfMN5VHG_iLZ_c-G10UULWrqp85KsaYHmgPKBnBPgi1eQMfcKpvTPNWQdQcLCMR39MaMOTZEbFsTiwCvv5VbxSRkJmdDOzP3OeVDTn4ceX3XIxnGnloiosRy0WVXIIl0N61SVlMGlfIK5PePnISLu8MnBSdWYS7wXQRheQDUnLjOs6EkDgVsWjxl5mFu-t751aPkWc');">
+                  </div>
+                  <div class="flex flex-col gap-1 p-4 justify-center">
+                    <div class="flex items-center gap-2">
+                      <div class="w-2.5 h-2.5 rounded-full bg-orange-400"></div>
+                      <p class="text-sm text-[#897561] dark:text-gray-400">Upcoming</p>
+                    </div>
+                    <h3 class="voucher-title text-lg font-bold">Lunch Deal</h3>
+                    <p class="voucher-desc text-primary text-lg font-bold">Free Drink</p>
+                    <p class="text-sm text-[#897561] dark:text-gray-400">Valid 1–15 Nov 2023, dine-in only.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Expired -->
+            <div class="tab-content" data-content="expired">
+              <div class="grid grid-cols-1 gap-6 p-4">
+                <div
+                  class="voucher-item flex flex-col xl:flex-row bg-white dark:bg-background-dark/50 rounded-lg shadow hover:shadow-lg transition-shadow opacity-70">
+                  <div
+                    class="w-full xl:w-1/3 bg-cover bg-center aspect-video xl:aspect-square rounded-t-lg xl:rounded-l-lg"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDH63O63RAJKVrh10ZwYpLKr52W6kS_e-pk8SwylrpqCXReJ53s3VR3k8hkiYifjx5RejKMO_SiuBpEJHPSDiGzF6i1RFbS_Gd0oihYcovXBnLoNHUJGfW6VHHe-VO5Ao89humk1U1ab9E9aMB5XwuBO_FUdwK4WwYlNIxzr6KdmbZHYmJpHkslIckNH27vAsocLRr1F8FJmr5SnBEhZWPGeE_RlLDmjhq_Mhh3vhCF3ryVXYgjzM-3Qu0u0nPcxVp8asdGIaW9OKA');">
+                  </div>
+                  <div class="flex flex-col gap-1 p-4 justify-center">
+                    <div class="flex items-center gap-2">
+                      <div class="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
+                      <p class="text-sm text-[#897561] dark:text-gray-400">Expired</p>
+                    </div>
+                    <h3 class="voucher-title text-lg font-bold">1-for-1 Main Courses</h3>
+                    <p class="voucher-desc text-primary text-lg font-bold">$10 Off Your Bill</p>
+                    <p class="text-sm text-[#897561] dark:text-gray-400">Expired 20 Oct 2023.</p>
+                  </div>
+                </div>
+
+                <div
+                  class="voucher-item flex flex-col xl:flex-row bg-white dark:bg-background-dark/50 rounded-lg shadow hover:shadow-lg transition-shadow opacity-70">
+                  <div
+                    class="w-full xl:w-1/3 bg-cover bg-center aspect-video xl:aspect-square rounded-t-lg xl:rounded-l-lg"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDH63O63RAJKVrh10ZwYpLKr52W6kS_e-pk8SwylrpqCXReJ53s3VR3k8hkiYifjx5RejKMO_SiuBpEJHPSDiGzF6i1RFbS_Gd0oihYcovXBnLoNHUJGfW6VHHe-VO5Ao89humk1U1ab9E9aMB5XwuBO_FUdwK4WwYlNIxzr6KdmbZHYmJpHkslIckNH27vAsocLRr1F8FJmr5SnBEhZWPGeE_RlLDmjhq_Mhh3vhCF3ryVXYgjzM-3Qu0u0nPcxVp8asdGIaW9OKA');">
+                  </div>
+                  <div class="flex flex-col gap-1 p-4 justify-center">
+                    <div class="flex items-center gap-2">
+                      <div class="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
+                      <p class="text-sm text-[#897561] dark:text-gray-400">Expired</p>
+                    </div>
+                    <h3 class="voucher-title text-lg font-bold">1-for-1 Main Courses</h3>
+                    <p class="voucher-desc text-primary text-lg font-bold">$10 Off Your Bill</p>
+                    <p class="text-sm text-[#897561] dark:text-gray-400">Expired 20 Oct 2023.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+  <script>
+    // === Tabs ===
+    const tabs = document.querySelectorAll(".tab-button");
+    const contents = document.querySelectorAll(".tab-content");
+
+    function activateTab(tabName) {
+      tabs.forEach(btn => {
+        const isActive = btn.dataset.tab === tabName;
+        btn.classList.toggle("text-primary", isActive);
+        btn.classList.toggle("font-bold", isActive);
+        btn.classList.toggle("border-primary", isActive);
+        btn.classList.toggle("text-[#897561]", !isActive);
+        btn.classList.toggle("dark:text-gray-400", !isActive);
+        btn.classList.toggle("border-transparent", !isActive);
+      });
+      contents.forEach(content => {
+        content.classList.toggle("active", content.dataset.content === tabName);
+      });
+    }
+    activateTab("active");
+    tabs.forEach(btn => btn.addEventListener("click", () => activateTab(btn.dataset.tab)));
+
+    // === Search Function ===
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keyup", () => {
+      const filter = searchInput.value.toLowerCase();
+      const vouchers = document.querySelectorAll(".voucher-item");
+
+      vouchers.forEach(voucher => {
+        const title = voucher.querySelector(".voucher-title").textContent.toLowerCase();
+        const desc = voucher.querySelector(".voucher-desc").textContent.toLowerCase();
+        if (title.includes(filter) || desc.includes(filter)) {
+          voucher.style.display = "";
+        } else {
+          voucher.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Restaurant kelola Banner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2F4858",
+            "secondary": "#FF7B00",
+            "background-light": "#F5F5F5",
+            "background-dark": "#1a1a1a",
+            "text-light": "#333333",
+            "text-dark": "#e0e0e0",
+            "subtext-light": "#666666",
+            "subtext-dark": "#a0a0a0",
+            "border-light": "#e0e0e0",
+            "border-dark": "#444444"
+          },
+          fontFamily: {
+            "display": ["Work Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+  <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 lg:px-20 py-4 bg-white dark:bg-background-dark sticky top-0 z-10">
+        <div class="flex items-center gap-4 text-primary">
+          <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
+          <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Restaurant Admin</h2>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="relative group">
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 cursor-pointer"
+              data-alt="User profile picture"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaZe1V7KBYCtm_AiLnVjKN2QQZZYBReGv2XsK6cG3qCFycXfxPoEk2GI_vrewUciHGh8nK36QiEaersvzao7F9R3nWaL6e1UhzW1tmnYzGz7u05Tr96WwhuPPYl_IJZn9PUECqhXAEHF1alSa1_doGi-toI24KnWYGgafwxJrKX43X30iLZXiZBoE-VTmPdz-HbXDAYQz4ByTkBjavxapHufjcCXarRwfRTW9yat9rl5PjvdxX7mjgBgpB6FkyqIZ8qWZ_T2v1DGY");'>
+            </div>
+            <div
+              class="absolute right-0 mt-2 w-48 bg-white dark:bg-background-dark rounded-lg shadow-lg py-1 hidden group-hover:block">
+              <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-background-light dark:hover:bg-gray-700"
+                href="ProfilAdmin.html">Profile</a>
+              <a class="block px-4 py-2 text-sm text-red-500 hover:bg-background-light dark:hover:bg-gray-700"
+                href="home_page.html">Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex-1 px-6 md:px-10 lg:px-20 py-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+            <div class="flex flex-col gap-2">
+              <p class="text-3xl lg:text-4xl font-black leading-tight tracking-[-0.033em]">Selamat Datang, Admin!</p>
+            </div>
+
+          </div>
+          <header
+            class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 lg:px-20 py-4 bg-white dark:bg-background-dark sticky top-0 z-10">
+            <nav class="hidden md:flex flex-1 justify-center gap-8">
+              <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal"
+                href="admin_dashboard.html">Kelola Menu</a>
+              <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal"
+                href="kelola_kategori.html">Kelola
+                kategori</a>
+              <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal"
+                href="kelola_voucher.html">Kelola
+                Voucher</a>
+              <a class="text-primary text-sm font-bold" href="kelola_banner.html">Kelola Banner</a>
+              <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal"
+                href="kelola_qr_code.html">Kelola QR Code
+                & Pop Up</a>
+            </nav>
+          </header>
+        </div>
+      </main>
+    </div>
+
+    <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="px-4 md:px-10 lg:px-20 xl:px-20 flex flex-1 justify-center pt-1 pb-3">
+          <!-- ubah py-4 jadi pt-2 pb-4 -->
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1 mt-[-15px]">
+            <!-- ubah mt-[-5px] jadi mt-[-10px] biar lebih naik -->
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#181411] dark:text-white text-3xl font-black leading-tight tracking-[-0.025em]">
+                  Kelola Banner
+                </p>
+              </div>
+            </div>
+
+
+            <!-- Tabs -->
+            <div class="pb-3 mt-2 px-6 md:px-10 lg:px-20">
+              <div class="flex border-b border-[#e6dddb] dark:border-b-[#3a2b27] gap-8">
+                <a data-tab="active"
+                  class="tab-btn flex flex-col items-center justify-center border-b-[3px] border-b-primary text-primary pb-[13px] pt-4 cursor-pointer">
+                  <p class="text-sm font-bold">Aktif</p>
+                </a>
+
+                <a data-tab="archive"
+                  class="tab-btn flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#896961] dark:text-gray-400 pb-[13px] pt-4 cursor-pointer">
+                  <p class="text-sm font-bold">Arsip</p>
+                </a>
+
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 p-4">
+              <div class="lg:col-span-2">
+                <div class="px-4 py-3 @container">
+                  <div
+                    class="flex overflow-hidden rounded-lg border border-[#e6dddb] dark:border-[#3a2b27] bg-white dark:bg-[#2e1e1a]">
+                    <table class="flex-1">
+                      <thead>
+                        <tr>
+                          <th class="px-4 py-3 text-left text-sm font-medium">Banner</th>
+                          <th class="px-4 py-3 text-left text-sm font-medium">Judul</th>
+                          <th class="px-4 py-3 text-left text-sm font-medium">Jadwal</th>
+                          <th class="px-4 py-3 text-left text-sm font-medium">Status</th>
+                          <th class="px-4 py-3 text-left text-sm font-medium">Aksi</th>
+                        </tr>
+                      </thead>
+
+                      <!-- ACTIVE LIST -->
+                      <tbody class="tab-content" data-content="active">
+                        <tr class="border-t border-[#e6dddb] dark:border-[#3a2b27]">
+                          <td class="px-4 py-2">
+                            <div class="bg-center bg-cover rounded-lg w-10 h-10"
+                              style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuBnkj-mpB62rZRJ-W-sYshhhMMf66DUrXAn_Onz0hbRGKX80eeM2wnJpEkfBO8wDy9JfZ_pgpGrsRyHVTa2N_YYmBaoICCnCSO9rcRxFbvKMWvjpXkLZrwmwhX7gnjSabxG6Hwe10o9sARRBsA3NyurV2Y3wQ6jvmF8T56zlgBPc4vlqcUJNbG5MpYKx9n9kpBeNAEeTfexvo4Q7Tq4-jtWBKdnnxY9oxPX0LzpPLdl-ZTmamfea5lpADzQwOLSxMaZH1PNRuYJ0FM");'>
+                            </div>
+                          </td>
+                          <td class="px-4 py-2 text-sm">Summer Special</td>
+                          <td class="px-4 py-2 text-sm">June 1 - July 31</td>
+                          <td class="px-4 py-2">
+                            <button
+                              class="min-w-[84px] h-8 px-4 rounded-full bg-green-100 text-green-800 text-sm font-medium">Aktif</button>
+                          </td>
+                          <td class="px-4 py-2 text-sm font-bold">
+                            <a class="hover:text-primary" href="#">Edit</a>
+                          </td>
+                        </tr>
+                      </tbody>
+
+                      <!-- ARCHIVE LIST -->
+                      <tbody class="tab-content" data-content="archive">
+                        <tr class="border-t border-[#e6dddb] dark:border-[#3a2b27]">
+                          <td class="px-4 py-2">
+                            <div class="bg-center bg-cover rounded-lg w-10 h-10"
+                              style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuAUHToZwYb-SQV4W6yP6jrFon3Awj5swzSRdHG_j3d_IaHudDxr8G-H7_pukfSFoBrwWW3ydDQjBYAK0_i2JtKfSJSqqcsrBWY8iwJO_TpTNp0MUE289QEv9wmuOzeYu2NrDzv9tqKVn5MGNK732KASgLTtHS1vlblhI9m-tOoqDXcYCTqScfM4JBgcZ-D6dB4ijjc2tbNK8NSkRTxHklMAc0KzGCtRAuc_NNfRFju_kl_V4aEiQIe6GFRsBxH9THgRQCaK4arF0UA");'>
+                            </div>
+                          </td>
+                          <td class="px-4 py-2 text-sm">Weekend Brunch</td>
+                          <td class="px-4 py-2 text-sm">May 1 - May 31</td>
+                          <td class="px-4 py-2">
+                            <button
+                              class="min-w-[84px] h-8 px-4 rounded-full bg-gray-200 text-gray-800 text-sm font-medium">Arsip</button>
+                          </td>
+                          <td class="px-4 py-2 text-sm font-bold">
+                            <a class="hover:text-primary" href="#">View</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+                <div class="px-4 py-3">
+                  <div
+                    class="flex flex-col items-center gap-6 rounded-lg border-2 border-dashed border-[#e6dddb] dark:border-[#3a2b27] px-6 py-14">
+                    <div class="flex max-w-[480px] flex-col items-center gap-2">
+                      <p
+                        class="text-[#181211] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] max-w-[480px] text-center">
+                        No active banners</p>
+                      <p
+                        class="text-[#896961] dark:text-gray-400 text-sm font-normal leading-normal max-w-[480px] text-center">
+                        Create a new banner to start promoting your offers.
+                      </p>
+                    </div>
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                      <span class="truncate">Buat Banner</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-1 p-4">
+                <div
+                  class="bg-white dark:bg-[#2e1e1a] rounded-xl p-6 border border-[#e6dddb] dark:border-[#3a2b27] space-y-6">
+                  <h3 class="text-xl font-bold text-[#181211] dark:text-white">Buat Banner Baru</h3>
+                  <div
+                    class="flex flex-col items-center gap-4 rounded-lg border-2 border-dashed border-[#e6dddb] dark:border-[#3a2b27] px-6 py-10 text-center">
+                    <span
+                      class="material-symbols-outlined text-4xl text-[#896961] dark:text-gray-400">upload_file</span>
+                    <p class="text-[#181211] dark:text-white text-sm font-medium">Drag &amp; drop your image/video here,
+                      or click to browse.</p>
+                    <p class="text-[#896961] dark:text-gray-400 text-xs">Recommended size: 1920x400px</p>
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-[#f4f1f0] dark:bg-[#3a2b27] text-[#181211] dark:text-white text-sm font-bold leading-normal tracking-[0.015em] mt-2">
+                      <span class="truncate">Upload</span>
+                    </button>
+                  </div>
+                  <div class="space-y-4">
+                    <div>
+                      <label class="block text-sm font-medium text-[#181211] dark:text-white mb-1"
+                        for="bannerTitle">Banner Title</label>
+                      <input
+                        class="form-input w-full rounded-lg border-[#e6dddb] dark:border-[#3a2b27] bg-background-light dark:bg-[#221410] text-[#181211] dark:text-white focus:ring-primary focus:border-primary"
+                        id="bannerTitle" type="text" />
+                    </div>
+                    <div>
+                      <label class="block text-sm font-medium text-[#181211] dark:text-white mb-1"
+                        for="description">Description</label>
+                      <textarea
+                        class="form-textarea w-full rounded-lg border-[#e6dddb] dark:border-[#3a2b27] bg-background-light dark:bg-[#221410] text-[#181211] dark:text-white focus:ring-primary focus:border-primary"
+                        id="description" rows="3"></textarea>
+                    </div>
+                    <div>
+                      <label class="block text-sm font-medium text-[#181211] dark:text-white mb-1"
+                        for="promoLink">Promotional Link</label>
+                      <input
+                        class="form-input w-full rounded-lg border-[#e6dddb] dark:border-[#3a2b27] bg-background-light dark:bg-[#221410] text-[#181211] dark:text-white focus:ring-primary focus:border-primary"
+                        id="promoLink" type="url" />
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                      <div>
+                        <label class="block text-sm font-medium text-[#181211] dark:text-white mb-1"
+                          for="startDate">Start Date &amp; Time</label>
+                        <input
+                          class="form-input w-full rounded-lg border-[#e6dddb] dark:border-[#3a2b27] bg-background-light dark:bg-[#221410] text-[#181211] dark:text-white focus:ring-primary focus:border-primary"
+                          id="startDate" type="datetime-local" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-medium text-[#181211] dark:text-white mb-1" for="endDate">End
+                          Date &amp; Time</label>
+                        <input
+                          class="form-input w-full rounded-lg border-[#e6dddb] dark:border-[#3a2b27] bg-background-light dark:bg-[#221410] text-[#181211] dark:text-white focus:ring-primary focus:border-primary"
+                          id="endDate" type="datetime-local" />
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-medium text-[#181211] dark:text-white mb-2">Live Preview</h4>
+                    <div class="rounded-lg overflow-hidden border border-[#e6dddb] dark:border-[#3a2b27]">
+                      <div class="bg-center bg-no-repeat bg-cover h-24"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuykWMAGrsoITyhXlpf4HFAXE_2-RZIJQXiw1dhMXgfknXvXN3lLYoUq0YevMRFngot3biCXh1NNTlk7KetsbbHWL2QQFIMMgsptnBzm04_tWv9AO_rDN50Eke-BfsLpmMZdxaPmL3Ek8VPItS9QcV8lfi_wLN_aKdI4D6mftJxPVHFrf16lcFOyfeHkopjiC9Yt43efbi2GW7yg97GCm9RhNudQjglM-hHNuuLgwxlKlfHCzU_l8BvFemcoXjger_yrTkC8PNu2A");'>
+                      </div>
+                      <div class="p-4 bg-background-light dark:bg-[#221410]">
+                        <h5 class="font-bold text-[#181211] dark:text-white">Banner Title</h5>
+                        <p class="text-sm text-[#896961] dark:text-gray-400">Description text goes here.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex justify-end gap-3 pt-4">
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f4f1f0] dark:bg-[#3a2b27] text-[#181211] dark:text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                      <span class="truncate">Cancel</span>
+                    </button>
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-primary text-sm font-bold leading-normal tracking-[0.015em]">
+                      <span class="truncate">Save</span>
+                    </button>
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                      <span class="truncate">Save &amp; Publish</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+
+        // === JS aktiv & arsiv ===
+        document.addEventListener("DOMContentLoaded", () => {
+
+          const tabs = document.querySelectorAll(".tab-btn");
+          const contents = document.querySelectorAll(".tab-content");
+
+          function activateTab(name) {
+
+            contents.forEach(c => {
+              c.style.display = (c.dataset.content === name) ? "table-row-group" : "none";
+            });
+
+            tabs.forEach(t => {
+              if (t.dataset.tab === name) {
+                t.classList.remove("border-b-transparent", "text-[#896961]");
+                t.classList.add("border-b-primary", "text-primary", "font-bold");
+              } else {
+                t.classList.remove("border-b-primary", "text-primary", "font-bold");
+                t.classList.add("border-b-transparent", "text-[#896961]");
+              }
+            });
+          }
+
+          activateTab("active");
+
+          tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+              activateTab(tab.dataset.tab);
+            });
+          });
+
+        });
+      </script>
+
+
+
+
+</body>
+
+</html>

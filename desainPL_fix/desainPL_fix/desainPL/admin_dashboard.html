@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Restaurant Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2F4858",
+                        "secondary": "#FF7B00",
+                        "background-light": "#F5F5F5",
+                        "background-dark": "#1a1a1a",
+                        "text-light": "#333333",
+                        "text-dark": "#e0e0e0",
+                        "subtext-light": "#666666",
+                        "subtext-dark": "#a0a0a0",
+                        "border-light": "#e0e0e0",
+                        "border-dark": "#444444"
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 lg:px-20 py-4 bg-white dark:bg-background-dark sticky top-0 z-10">
+                <div class="flex items-center gap-4 text-primary">
+                    <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
+                    <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Restaurant Admin</h2>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="relative group">
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 cursor-pointer"
+                            data-alt="User profile picture"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaZe1V7KBYCtm_AiLnVjKN2QQZZYBReGv2XsK6cG3qCFycXfxPoEk2GI_vrewUciHGh8nK36QiEaersvzao7F9R3nWaL6e1UhzW1tmnYzGz7u05Tr96WwhuPPYl_IJZn9PUECqhXAEHF1alSa1_doGi-toI24KnWYGgafwxJrKX43X30iLZXiZBoE-VTmPdz-HbXDAYQz4ByTkBjavxapHufjcCXarRwfRTW9yat9rl5PjvdxX7mjgBgpB6FkyqIZ8qWZ_T2v1DGY");'>
+                        </div>
+                        <div
+                            class="absolute right-0 mt-2 w-48 bg-white dark:bg-background-dark rounded-lg shadow-lg py-1 hidden group-hover:block">
+                            <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-background-light dark:hover:bg-gray-700"
+                                href="ProfilAdmin.html">Profile</a>
+                            <a class="block px-4 py-2 text-sm text-red-500 hover:bg-background-light dark:hover:bg-gray-700"
+                                href="home_page.html">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 px-6 md:px-10 lg:px-20 py-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+                        <div class="flex flex-col gap-2">
+                            <p class="text-3xl lg:text-4xl font-black leading-tight tracking-[-0.033em]">Selamat Datang,
+                                Admin!</p>
+                        </div>
+
+                    </div>
+                    <header
+                        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 lg:px-20 py-4 bg-white dark:bg-background-dark sticky top-0 z-10">
+
+                        <nav class="hidden md:flex flex-1 justify-center gap-8">
+                            <a class="text-primary text-sm font-bold" href="admin_dashboard.html">Kelola Menu</a>
+                            <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal"
+                                href="kelola_kategori.html">Kelola kategori</a>
+                            <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal"
+                                href="kelola_voucher.html">Kelola Voucher</a>
+                            <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal"
+                                href="kelola_banner.html">Kelola Banner</a>
+                            <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal"
+                                href="kelola_qr_code.html">Kelola QR Code & Pop Up</a>
+                        </nav>
+
+                    </header>
+                    <div class="flex justify-end mt-6 px-4">
+                        <button id="btnTambahMenu"
+                            class="px-4 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition">
+                            + Tambah Menu
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 p-4">
+                        <div
+                            class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group">
+                            <div
+                                class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                Edit</div>
+                            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                                data-alt="Golden brown bruschetta with fresh tomatoes"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                            </div>
+                            <div class="p-4 pt-0">
+                                <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">cumi
+                                    krispi asin pedas</p>
+                                <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                    cumi hitam manis membuat lidah bergoyang.</p>
+                                <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                    Rp50.000,-</p>
+                            </div>
+                        </div>
+                        <div
+                            class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group">
+                            <div
+                                class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                Edit</div>
+                            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                                data-alt="Golden brown bruschetta with fresh tomatoes"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                            </div>
+                            <div class="p-4 pt-0">
+                                <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">cumi
+                                    krispi asin pedas</p>
+                                <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                    cumi hitam manis membuat lidah bergoyang.</p>
+                                <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                    Rp50.000,-</p>
+                            </div>
+                        </div>
+                        <div
+                            class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group">
+                            <div
+                                class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                Edit</div>
+                            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                                data-alt="Golden brown bruschetta with fresh tomatoes"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                            </div>
+                            <div class="p-4 pt-0">
+                                <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">cumi
+                                    krispi asin pedas</p>
+                                <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                    cumi hitam manis membuat lidah bergoyang.</p>
+                                <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                    Rp50.000,-</p>
+                            </div>
+                        </div>
+                        <div
+                            class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group">
+                            <div
+                                class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                Edit</div>
+                            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                                data-alt="Golden brown bruschetta with fresh tomatoes"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                            </div>
+                            <div class="p-4 pt-0">
+                                <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">cumis
+                                    krispi asin pedas</p>
+                                <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                    cumi hitam manis membuat lidah bergoyang.</p>
+                                <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                    Rp50.000,-</p>
+                            </div>
+                        </div>
+                        <div
+                            class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group">
+                            <div
+                                class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                Edit</div>
+                            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                                data-alt="Golden brown bruschetta with fresh tomatoes"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                            </div>
+                            <div class="p-4 pt-0">
+                                <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">cumi
+                                    krispi asin pedas</p>
+                                <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                    cumi hitam manis membuat lidah bergoyang.</p>
+                                <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                    Rp50.000,-</p>
+                            </div>
+                        </div>
+                        <div
+                            class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group">
+                            <div
+                                class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                Edit</div>
+                            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                                data-alt="Golden brown bruschetta with fresh tomatoes"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                            </div>
+                            <div class="p-4 pt-0">
+                                <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">cumi
+                                    krispi asin pedas</p>
+                                <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                    cumi hitam manis membuat lidah bergoyang.</p>
+                                <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                    Rp50.000,-</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </main>
+
+        </div>
+    </div>
+</body>
+    <script>
+        document.getElementById("btnTambahMenu").addEventListener("click", function () {
+            window.location.href = "popupform.html";
+        });
+    </script>
+
+
+</html>

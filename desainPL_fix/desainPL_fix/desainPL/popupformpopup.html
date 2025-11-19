@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kelola Pop Up Iklan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2F4858",
+            border: "#E0E0E0",
+            background: "#FFFFFF",
+            text: "#333333",
+            subtext: "#666666",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-gray-100 text-text font-sans flex items-center justify-center min-h-screen">
+
+  <!-- Popup Modal -->
+  <div class="fixed inset-0 bg-black/30 flex items-center justify-center z-50">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 relative border border-border">
+      
+      <!-- Close Button -->
+      <button class="absolute top-4 right-4 text-gray-500 hover:text-text text-2xl">&times;</button>
+
+      <!-- Title -->
+      <h2 class="text-2xl font-bold mb-6 text-primary">Kelola Pop Up Iklan</h2>
+      <p class="text-sm text-subtext mb-4">Konfigurasikan iklan untuk ditampilkan di beranda.</p>
+
+      <!-- Form -->
+      <form class="space-y-5">
+        <!-- Title -->
+        <div>
+          <label class="block mb-1 text-sm font-medium text-text">Title</label>
+          <input type="text" value="YBF Resto"
+            class="w-full bg-white border border-border rounded-lg p-2 focus:border-primary focus:ring-primary focus:ring-1 outline-none">
+        </div>
+
+        <!-- Type -->
+        <div>
+          <label class="block mb-1 text-sm font-medium text-text">Type</label>
+          <select
+            class="w-full bg-white border border-border rounded-lg p-2 focus:border-primary focus:ring-primary focus:ring-1 outline-none">
+            <option selected>Image</option>
+            <option>Video</option>
+          </select>
+        </div>
+
+        <!-- Image -->
+        <div>
+          <label class="block mb-1 text-sm font-medium text-text">Image</label>
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtoDdd1BnOyNhmEAnXGDvz7UavoP2D7GbFFvTuPIc-RSauxFX95hAtqSvswYYH7oIVccz_yC8SLlxJyzJHO_66o_QlfMOYTgCShsu4R35NTLDWAn4Sp7AdOOuEPc_jldSsvPhtyTK-66cTc5JUhcYVo2Hy_S5s59aBlhUx6oWyh4DQJbtH8e-zbdHp1lErw-oifmx2sw_ckCmtcJ-OxBKYGfiy6QUCN6k_ku17sDpcfVCj-JWcThx8or7k_OFOpkXkX6w6KtBgJSs"
+               alt="Preview" class="w-full h-40 object-cover rounded-lg mb-3 border border-border">
+          <input type="file"
+            class="w-full text-sm text-gray-700 border border-border rounded-lg p-2 file:mr-3 file:py-1 file:px-3 file:rounded-lg file:border-0 file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300">
+        </div>
+
+        <!-- Redirect Link -->
+        <div>
+          <label class="block mb-1 text-sm font-medium text-text">Redirect Link (Optional)</label>
+          <input type="url" placeholder="https://example.com"
+            class="w-full bg-white border border-border rounded-lg p-2 focus:border-primary focus:ring-primary focus:ring-1 outline-none">
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-end gap-3 pt-6">
+          <button type="button"
+            class="px-5 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 transition">Batal</button>
+          <button type="submit"
+            class="px-5 py-2 rounded-lg bg-primary hover:bg-primary/90 text-white font-semibold">Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

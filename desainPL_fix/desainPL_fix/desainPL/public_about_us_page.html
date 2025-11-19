@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About Us - Restaurant MakanYuk!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#800000",
+                        "background-light": "#ffffff",
+                        "background-dark": "#221910",
+                        "text-light": "#333333",
+                        "text-dark": "#f8f7f6"
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+                <div class="px-4 md:px-10 lg:px-40 flex justify-center">
+                    <div
+                        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-primary/20 py-3 w-full max-w-[960px]">
+                        <div class="flex items-center gap-4 text-primary">
+                            <div class="size-6">
+                                <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z"
+                                        fill="currentColor" fill-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-primary text-xl font-bold leading-tight tracking-[-0.015em]">MakanYuk!</h2>
+                        </div>
+                        <div class="hidden md:flex flex-1 justify-end gap-8">
+                            <div class="flex items-center gap-9">
+                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary"
+                                    href="home_page.html">Home</a>
+                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary"
+                                    href="menu_page.html">Menu</a>
+                                <a class="text-primary text-sm font-bold leading-normal"
+                                    href="public_about_us_page.html">About Us</a>
+                            </div>
+                        </div>
+                        <button
+                            class="md:hidden flex items-center justify-center size-10 text-text-light dark:text-text-dark">
+                            <span class="material-symbols-outlined">menu</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            <main class="flex-1">
+                <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+                    <div class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-12">
+                        <div class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[400px]"
+                            data-alt="Interior of the restaurant showing a warm and inviting ambiance."
+                            style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBot4j3rDWfwgrtW7P0x-H-hniMUEEMQZWIWxzvDY-mm5s3RRZawJ4T8HdwWfWVC3JUsoDRvEQWxqY4FyaTz96Pfsk_Pxvsr7ArxlEHqcim6sKI5tpEVnX0r7Xw8jbFeu2Cwacpzuvps7vUttBfj28cyMqHDB_yGcvab5ruwAyCQtaqaP8ut01URdtEkVVCZw_uKHo9iq57LdJwAAoEUPf3OiMqbXwlvqEEecu4f-M6VzyCTfys5231w6iPfyL7_29EQRxRpHhQfWk");'>
+                            <div class="flex p-8">
+                                <h1 class="text-white text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+                                    Selamat Datang di MakanYuk!<br />Destinasi perjalanan Kulinermu.</h1>
+                            </div>
+                        </div>
+                        <section>
+                            <p
+                                class="text-text-light dark:text-text-dark text-lg font-normal leading-relaxed text-center px-4">
+                                Di Restaurant MakanYuk, kami percaya akan pengalaman kuliner unik yang memadukan cita
+                                rasa tradisional dengan teknik modern. Kecintaan kami terhadap makanan tercermin dalam
+                                setiap hidangan yang kami buat, hanya menggunakan bahan-bahan lokal segar untuk
+                                menciptakan menu yang familiar sekaligus menarik.
+                            </p>
+                        </section>
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div class="flex flex-col gap-4">
+                                <h2 class="text-primary text-4xl font-black leading-tight tracking-[-0.033em]">Kisah
+                                    kami</h2>
+                                <p class="text-text-light dark:text-text-dark text-base font-normal leading-normal">
+                                    Didirikan pada tahun 2005 oleh koki ternama John Doe, Restaurant Name berawal dari
+                                    sebuah bistro kecil dengan impian besar: menghadirkan hidangan autentik dan
+                                    berkualitas tinggi bagi komunitas kami. Selama bertahun-tahun, kami telah berkembang
+                                    menjadi landmark lokal yang dicintai, dikenal karena hidangan inovatif dan
+                                    suasananya yang hangat dan ramah. Perjalanan kami diwarnai oleh semangat, dedikasi,
+                                    dan pengejaran tanpa henti akan keunggulan kuliner.
+                                </p>
+                            </div>
+                            <img alt="The kitchen staff preparing dishes with focus and dedication."
+                                class="rounded-xl object-cover w-full h-80"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfMXKLP7zRnzdJ1hqFLtLWQ00ukGfVzTHVKIkraMEK-jSaTCXlczqHwLlOjILdR_e26bExHT0KNcPpQhE8_T-tzu-bx6wkcXeRdP-Sl_SUov1qRWSQ1KpX0ek21kbhLRJzx5yiGYHz_qVVhO_KHKxA92Dftu9DqkeBp4vV5BjqZaDSTQGSGei7LFO4iM1Sq3ti0pqzyhmOYHk42Ut0cYEu1PcowA8BXbz4t9dR97hQvpUd6jNXjmjoCXWdVohZtIv-sfTYl0-4uVk" />
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <img alt="A beautifully presented dish, showcasing the restaurant's culinary artistry."
+                                class="rounded-xl object-cover w-full h-80 order-2 md:order-1"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuByHEt5LAhPLX9HD4DSuf6muKMmzRLFd-kghgPw96xgdfVl1zK4ZefKfNGRuIztS7zwY3QanOWCbfS7SUGCaNVWVCpTF0PtUOv5XiZbb1lvDsw29-n2w8uD8fC2kqBiPz9-7_EpI45pkCmgINjTQICdpO6llvmnJ5v6unqIC_Odi94c20YtJjG_UncrpJ1H2G1yr28TiJUUHbah8eybR-402tfwYzKO6kWJXqwMo56oNI961W1U1Lxyc0EBa7vnaqSn6YaTOk8Qf1U" />
+                            <div class="flex flex-col gap-4 order-1 md:order-2">
+                                <h2 class="text-primary text-4xl font-black leading-tight tracking-[-0.033em]">Visi
+                                    &amp; Misi</h2>
+                                <p class="text-text-light dark:text-text-dark text-base font-normal leading-normal">
+                                    Visi kami adalah menjadi landasan komunitas, tempat orang-orang berkumpul untuk
+                                    merayakan momen-momen penting dalam hidup, baik besar maupun kecil. Misi kami adalah
+                                    senantiasa memberikan pengalaman bersantap yang luar biasa kepada para tamu melalui
+                                    layanan prima, suasana yang ramah, dan yang terpenting, hidangan yang menceritakan
+                                    kisah dan memanjakan indra.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            class=" text-center  bg-background-light dark:bg-background-dark p-8 rounded-xl border border-primary/20">
+                            <div class="flex flex-col gap-6">
+                                <h2 class="text-primary text-4xl font-black leading-tight tracking-[-0.033em] ">Kunjungi
+                                    Kami</h2>
+                                <div class="flex flex-col gap-4">
+                                    <div>
+                                        <h3 class="font-bold text-lg text-text-light dark:text-text-dark">Jam Operasi
+                                        </h3>
+                                        <p class="text-text-light dark:text-text-dark">Mon - Fri: 11:00 AM - 10:00 PM
+                                        </p>
+                                        <p class="text-text-light dark:text-text-dark">Sat - Sun: 10:00 AM - 11:00 PM
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-text-light dark:text-text-dark">Alamat</h3>
+                                        <p class="text-text-light dark:text-text-dark">123 Mars Selatan, Kota Bimasakti,
+                                            45678</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <section class="text-center py-10">
+                            <h2 class="text-primary text-4xl font-black leading-tight tracking-[-0.033em] mb-4">Hubungi
+                                kami</h2>
+                            <p class="text-text-light dark:text-text-dark text-lg mb-6">Kami ingin sekali mendengar
+                                kabar dari Anda. Ikuti kami di media sosial atau kirimkan pesan.</p>
+                            <div class="flex justify-center gap-4 text-text-light dark:text-text-dark mb-8">
+                                <a class="hover:text-primary transition-colors" href="#">
+                                    <svg class="size-6" fill="currentColor" viewbox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.415 2.175 8.796 2.163 12 2.163m0-1.625c-3.273 0-3.663.014-4.948.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.285-.073 1.673-.073 4.948s.014 3.664.072 4.948c.2 4.358 2.618 6.78 6.98 6.98 1.285.058 1.673.072 4.948.072s3.663-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.285.073-1.673.073-4.948s-.014-3.664-.072-4.948c-.198-4.358-2.622-6.78-6.979-6.98C15.663.552 15.273.538 12 .538z">
+                                        </path>
+                                        <path
+                                            d="M12 6.865A5.135 5.135 0 1017.135 12 5.135 5.135 0 0012 6.865zm0 8.27A3.135 3.135 0 1115.135 12 3.135 3.135 0 0112 15.135z">
+                                        </path>
+                                        <path
+                                            d="M17.438 6.556a1.218 1.218 0 10-1.218-1.218 1.218 1.218 0 001.218 1.218z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a class="hover:text-primary transition-colors" href="#">
+                                    <svg class="size-6" fill="currentColor" viewbox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-.424.727-.666 1.581-.666 2.477 0 1.944 1.121 3.393 2.696 4.298-.951-.03-1.788-.292-2.55-.693v.064c0 2.712 1.912 4.969 4.47 5.482-.468.127-.96.195-1.464.195-.359 0-.704-.035-1.036-.098.713 2.215 2.766 3.828 5.21 3.872-1.897 1.487-4.293 2.37-6.918 2.37-.451 0-.895-.026-1.332-.076 2.454 1.571 5.377 2.489 8.525 2.489 10.225 0 15.823-8.513 15.55-15.824.976-.699 1.798-1.58 2.366-2.583z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a class="hover:text-primary transition-colors" href="#">
+                                    <svg class="size-6" fill="currentColor" viewbox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M22.675 0h-21.35C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h5.882c.732 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+
+                        </section>
+                    </div>
+                </div>
+            </main>
+            <footer class="bg-background-light dark:bg-background-dark border-t border-primary/20 mt-12">
+                <div class="px-4 md:px-10 lg:px-40 flex justify-center py-6">
+                    <div
+                        class="max-w-[960px] w-full flex flex-col md:flex-row justify-between items-center text-sm text-text-light dark:text-text-dark gap-4">
+                        <p>© 2024 Restaurant MakanYuk!. Semua Hak Dilindungi Undang-undang.</p>
+                        <div class="flex gap-4">
+                            <a class="hover:text-primary" href="#">Privacy Policy</a>
+                            <a class="hover:text-primary" href="#">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

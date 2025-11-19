@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Restaurant kelola QR Code & Pop Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- QR lib (toDataURL + toString for SVG) -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2F4858",
+            "secondary": "#FF7B00",
+            "background-light": "#F5F5F5",
+            "background-dark": "#1a1a1a",
+            "text-light": "#333333",
+            "text-dark": "#e0e0e0",
+            "subtext-light": "#666666",
+            "subtext-dark": "#a0a0a0",
+            "border-light": "#e0e0e0",
+            "border-dark": "#444444"
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+  <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 lg:px-20 py-4 bg-white dark:bg-background-dark sticky top-0 z-10">
+        <div class="flex items-center gap-4 text-primary">
+          <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
+          <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Restaurant Admin</h2>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="relative group">
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 cursor-pointer"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaZe1V7KBYCtm_AiLnVjKN2QQZZYBReGv2XsK6cG3qCFycXfxPoEk2GI_vrewUciHGh8nK36QiEaersvzao7F9R3nWaL6e1UhzW1tmnYzGz7u05Tr96WwhuPPYl_IJZn9PUECqhXAEHF1alSa1_doGi-toI24KnWYGgafwxJrKX43X30iLZXiZBoE-VTmPdz-HbXDAYQz4ByTkBjavxapHufjcCXarRwfRTW9yat9rl5PjvdxX7mjgBgpB6FkyqIZ8qWZ_T2v1DGY");'>
+            </div>
+            <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-background-dark rounded-lg shadow-lg py-1 hidden group-hover:block">
+              <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-background-light" href="ProfilAdmin.html">Profile</a>
+              <a class="block px-4 py-2 text-sm text-red-500 hover:bg-background-light" href="home_page.html">Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex-1 px-6 md:px-10 lg:px-20 py-6">
+        <div class="max-w-[1280px] mx-auto">
+          <!-- Judul dan Tombol -->
+          <div class="flex flex-wrap justify-between items-center gap-4 mb-6 mt-[-8px]">
+            <div class="flex flex-col gap-2">
+              <p class="text-black dark:text-white text-3xl font-black leading-tight tracking-[-0.025em]">Kelola QR Code dan Pop Up Iklan</p>
+              <p class="text-gray-500 dark:text-gray-400 text-base">Hasilkan kode QR dan kelola popup promosi.</p>
+            </div>
+            <button id="tambahPopUpIklan" class="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-lg h-10 text-sm font-bold tracking-wide hover:bg-primary/90 transition">
+              <span class="material-symbols-outlined">add</span>
+              <span>Tambah Pop Up Iklan</span>
+            </button>
+          </div>
+
+          <!-- Dua Kolom -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- QR Code Generator -->
+            <div class="bg-white dark:bg-background-dark p-6 rounded-xl shadow-md">
+              <h2 class="text-black dark:text-white text-[22px] font-bold mb-2">QR Code Generator</h2>
+              <p class="text-gray-500 dark:text-gray-400 mb-6">Masukkan URL situs web restoran untuk membuat kode QR.</p>
+
+              <div class="flex flex-col gap-4">
+                <label class="flex flex-col w-full">
+                  <p class="text-black dark:text-white text-base font-medium pb-2">Website URL</p>
+                  <input id="qrInputUrl"
+                    class="form-input w-full rounded-lg text-black dark:text-white bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700 focus:border-primary focus:ring-primary h-14 p-4 text-base"
+                    placeholder="https://www.your-restaurant.com" value="" />
+                </label>
+
+                <div class="flex gap-3">
+                  <button id="generateQrBtn" class="flex-1 bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-primary/90 transition-colors">Generate QR Code</button>
+                  <input id="qrSize" type="number" min="64" max="1024" value="400" title="Size (px)" class="w-28 p-3 rounded-lg border" />
+                </div>
+
+                <div id="qrResultArea" class="mt-6 flex flex-col items-center justify-center p-6 border border-dashed border-gray-300 dark:border-gray-700 rounded-xl">
+                  <!-- placeholder -->
+                  <div id="qrCanvasWrap" class="bg-gray-200 dark:bg-gray-700 w-48 h-48 flex items-center justify-center rounded-lg mb-4">
+                    <span id="qrPlaceholder" class="material-symbols-outlined text-6xl text-gray-400 dark:text-gray-500">qr_code_2</span>
+                  </div>
+                  <p id="qrInfo" class="text-gray-500 dark:text-gray-400 mb-4">Your QR code will appear here</p>
+
+                  <div class="flex gap-4">
+                    <a id="downloadPng" class="flex items-center gap-2 px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-lg text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600" download="qrcode.png" href="#">
+                      <span class="material-symbols-outlined">download</span> PNG
+                    </a>
+                    <a id="downloadSvg" class="flex items-center gap-2 px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-lg text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600" download="qrcode.svg" href="#">
+                      <span class="material-symbols-outlined">download</span> SVG
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ad Popup Manager -->
+            <div class="bg-white dark:bg-background-dark p-6 rounded-xl shadow-md">
+              <h2 class="text-black dark:text-white text-[22px] font-bold mb-2">Ad Popup Manager</h2>
+              <p class="text-gray-500 dark:text-gray-400 mb-6">Kelola pop-up promosi. Aktifkan salah satunya agar tampil di situs web.</p>
+
+              <div id="popupList" class="space-y-4">
+                <!-- Popup item template (example 1) -->
+                <div class="popup-item flex items-center p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg" data-title="Summer Special" data-desc="Grilled Chicken Promo">
+                  <img class="w-16 h-16 object-cover rounded-md mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcFY492Z3-NZrVPMx4ykiT5XYcO6cRo71cObZ53d4N4j3sSkxI2H7qRmb6ms2kFVaAR7aJO0hba5VscBJpdn07Hf9yHHmOJAvS5MFgZA7QndT0L3mHnPQhiwb9Cc73qZZshYlRUAUL3Z5EShv3S4aMYjDZdP49u0HHCNUcClzDJB3h42jfxqluSkRMXXpG22licHRYYVzWS8l5PJl2kltKFfZbiPzDSkgNZwzsVb5ZHT8bAHTwEuhURUUcELrXV0KQVPAffsen6hI" alt="Promo 1" />
+                  <div class="flex-grow">
+                    <p class="font-semibold text-black dark:text-white">Summer Special</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Grilled Chicken Promo</p>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input class="toggle-active sr-only" type="checkbox" checked />
+                      <div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full peer-checked:bg-primary relative"></div>
+                      <span class="ml-3 text-sm font-medium text-black dark:text-white">Active</span>
+                    </label>
+                    <button class="btn-edit p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300" title="Edit">
+                      <span class="material-symbols-outlined">edit</span>
+                    </button>
+                    <button class="btn-delete p-2 rounded-full hover:bg-red-100 dark:hover:bg-red-900/50 text-red-500" title="Delete">
+                      <span class="material-symbols-outlined">delete</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Popup item template (example 2) -->
+                <div class="popup-item flex items-center p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg" data-title="Healthy Bowls" data-desc="New Salad Menu">
+                  <img class="w-16 h-16 object-cover rounded-md mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtoDdd1BnOyNhmEAnXGDvz7UavoP2D7GbFFvTuPIc-RSauxFX95hAtqSvswYYH7oIVccz_yC8SLlxJyzJHO_66o_QlfMOYTgCShsu4R35NTLDWAn4Sp7AdOOuEPc_jldSsvPhtyTK-66cTc5JUhcYVo2Hy_S5s59aBlhUx6oWyh4DQJbtH8e-zbdHp1lErw-oifmx2sw_ckCmtcJ-OxBKYGfiy6QUCN6k_ku17sDpcfVCj-JWcThx8or7k_OFOpkXkX6w6KtBgJSs" alt="Promo 2" />
+                  <div class="flex-grow">
+                    <p class="font-semibold text-black dark:text-white">Healthy Bowls</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">New Salad Menu</p>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input class="toggle-active sr-only" type="checkbox" />
+                      <div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full peer-checked:bg-primary relative"></div>
+                      <span class="ml-3 text-sm font-medium text-gray-500 dark:text-gray-400">Inactive</span>
+                    </label>
+                    <button class="btn-edit p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300" title="Edit">
+                      <span class="material-symbols-outlined">edit</span>
+                    </button>
+                    <button class="btn-delete p-2 rounded-full hover:bg-red-100 dark:hover:bg-red-900/50 text-red-500" title="Delete">
+                      <span class="material-symbols-outlined">delete</span>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- Akhir Ad Popup Manager -->
+          </div>
+        </div>
+      </main>
+
+      <!-- Modal Edit Popup (hidden by default) -->
+      <div id="editPopupModal" class="fixed inset-0 hidden z-50 flex items-center justify-center bg-black/40">
+        <div class="bg-white dark:bg-background-dark rounded-lg p-6 w-full max-w-md">
+          <h3 class="text-lg font-bold mb-3">Edit Pop Up Iklan</h3>
+          <div class="space-y-3">
+            <label class="block">
+              <span class="text-sm">Title</span>
+              <input id="modalTitle" type="text" class="w-full border rounded p-2" />
+            </label>
+            <label class="block">
+              <span class="text-sm">Description</span>
+              <input id="modalDesc" type="text" class="w-full border rounded p-2" />
+            </label>
+            <div class="flex justify-end gap-3 pt-4">
+              <button id="modalCancel" class="px-4 py-2 bg-gray-200 rounded">Cancel</button>
+              <button id="modalSave" class="px-4 py-2 bg-primary text-white rounded">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // === QR CODE GENERATION (PNG & SVG) ===
+        (function () {
+          const input = document.getElementById('qrInputUrl');
+          const btn = document.getElementById('generateQrBtn');
+          const sizeInput = document.getElementById('qrSize');
+          const canvasWrap = document.getElementById('qrCanvasWrap');
+          const placeholder = document.getElementById('qrPlaceholder');
+          const qrInfo = document.getElementById('qrInfo');
+          const downloadPng = document.getElementById('downloadPng');
+          const downloadSvg = document.getElementById('downloadSvg');
+
+          // helper to clear result area
+          function clearResult() {
+            canvasWrap.innerHTML = '';
+            qrInfo.textContent = 'Your QR code will appear here';
+            downloadPng.href = '#';
+            downloadSvg.href = '#';
+            downloadPng.classList.add('opacity-50');
+            downloadSvg.classList.add('opacity-50');
+            downloadPng.removeAttribute('download');
+            downloadSvg.removeAttribute('download');
+          }
+
+          clearResult();
+
+          btn.addEventListener('click', async () => {
+            const url = input.value.trim();
+            const size = parseInt(sizeInput.value) || 400;
+
+            if (!url) {
+              alert('Masukkan URL terlebih dahulu.');
+              return;
+            }
+
+            // show loading
+            qrInfo.textContent = 'Generating...';
+            canvasWrap.innerHTML = '<div class="w-48 h-48 flex items-center justify-center">Generating...</div>';
+
+            try {
+              // PNG dataURL via canvas
+              const dataUrl = await QRCode.toDataURL(url, { width: size, margin: 1 });
+              // set PNG preview (img)
+              canvasWrap.innerHTML = `<img id="qrImgPreview" src="${dataUrl}" alt="QR" class="w-48 h-48" />`;
+              qrInfo.textContent = 'Right-click or use the buttons to download.';
+
+              // set download link for PNG
+              downloadPng.href = dataUrl;
+              downloadPng.setAttribute('download', 'qrcode.png');
+              downloadPng.classList.remove('opacity-50');
+
+              // SVG string
+              const svgString = await QRCode.toString(url, { type: 'svg', margin: 1, width: size });
+              // create data URI for svg
+              const svgDataUri = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgString);
+              downloadSvg.href = svgDataUri;
+              downloadSvg.setAttribute('download', 'qrcode.svg');
+              downloadSvg.classList.remove('opacity-50');
+
+              // Optionally show SVG inline (hidden by default) - keep small to avoid layout shift
+              // document.getElementById('qrSvg').innerHTML = svgString;
+            } catch (err) {
+              console.error(err);
+              alert('Gagal membuat QR: ' + (err && err.message ? err.message : err));
+              clearResult();
+            }
+          });
+        })();
+
+        // === Ad Popup Edit & Delete handlers ===
+        (function () {
+          const popupList = document.getElementById('popupList');
+          const editModal = document.getElementById('editPopupModal');
+          const modalTitle = document.getElementById('modalTitle');
+          const modalDesc = document.getElementById('modalDesc');
+          const modalCancel = document.getElementById('modalCancel');
+          const modalSave = document.getElementById('modalSave');
+
+          let currentEditingItem = null;
+
+          // delegate edit/delete clicks
+          popupList.addEventListener('click', (e) => {
+            const editBtn = e.target.closest('.btn-edit');
+            const delBtn = e.target.closest('.btn-delete');
+
+            if (editBtn) {
+              const item = editBtn.closest('.popup-item');
+              openEditModal(item);
+              return;
+            }
+
+            if (delBtn) {
+              const item = delBtn.closest('.popup-item');
+              handleDelete(item);
+              return;
+            }
+          });
+
+          function openEditModal(item) {
+            currentEditingItem = item;
+            modalTitle.value = item.dataset.title || '';
+            modalDesc.value = item.dataset.desc || '';
+            editModal.classList.remove('hidden');
+            // trap focus simple: focus first input
+            modalTitle.focus();
+          }
+
+          modalCancel.addEventListener('click', () => {
+            closeModal();
+          });
+
+          // Save in modal (dummy: update DOM attributes + text)
+          modalSave.addEventListener('click', () => {
+            if (!currentEditingItem) return closeModal();
+            const newTitle = modalTitle.value.trim();
+            const newDesc = modalDesc.value.trim();
+            if (!newTitle) { alert('Title tidak boleh kosong'); return; }
+
+            // update dataset
+            currentEditingItem.dataset.title = newTitle;
+            currentEditingItem.dataset.desc = newDesc;
+
+            // update visible texts inside card
+            const titleEl = currentEditingItem.querySelector('.flex-grow p.font-semibold');
+            const descEl = currentEditingItem.querySelector('.flex-grow p.text-sm');
+            if (titleEl) titleEl.textContent = newTitle;
+            if (descEl) descEl.textContent = newDesc;
+
+            // TODO: call API to persist changes
+
+            closeModal();
+          });
+
+          function closeModal() {
+            editModal.classList.add('hidden');
+            currentEditingItem = null;
+          }
+
+          function handleDelete(item) {
+            const title = item.dataset.title || 'this item';
+            if (!confirm(`Hapus "${title}"? Aksi ini tidak dapat dibatalkan.`)) return;
+            // remove from DOM
+            item.remove();
+            // TODO: call API to delete from server
+          }
+
+          // close modal when clicking on backdrop
+          editModal.addEventListener('click', (e) => {
+            if (e.target === editModal) closeModal();
+          });
+
+          // Toggle active label text when checkbox toggled
+          popupList.addEventListener('change', (e) => {
+            if (e.target.classList.contains('toggle-active')) {
+              const wrapper = e.target.closest('.popup-item');
+              const label = wrapper?.querySelector('span.ml-3');
+              if (label) {
+                if (e.target.checked) {
+                  label.textContent = 'Active';
+                  label.classList.remove('text-gray-500');
+                } else {
+                  label.textContent = 'Inactive';
+                  label.classList.add('text-gray-500');
+                }
+              }
+              // TODO: call API to update active state
+            }
+          });
+        })();
+
+        // redirect to popupform page on "Tambah Pop Up Iklan" (kept as original)
+        document.getElementById('tambahPopUpIklan').addEventListener('click', function () {
+          window.location.href = "popupformpopup.html";
+        });
+      </script>
+    </div>
+  </div>
+</body>
+</html>

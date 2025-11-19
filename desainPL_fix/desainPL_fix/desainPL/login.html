@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Admin Login</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ec3e13",
+            "background-light": "#f8f6f6",
+            "background-dark": "#221410",
+          },
+          fontFamily: {
+            "display": ["Work Sans"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+  <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden"
+    style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="relative flex flex-1 justify-center items-center py-5 bg-center bg-cover"
+        style='background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwqsYMy9DkAg88_e_LN-ZZghUDGL7Dz1QfB4NHw8u9fyq1OqV4CYp0vLq_YnXTH-w_xb3OhFpR74hBrIrOPYyYLluc041E2QyH_TskoijSuLt3z5U3xEqjY9Fj6vEuHMg637Go4VBCXmgWMj7akJBoB6rkGAr7C5SPXbGLN71iAIORW3O_YLA-Bfe7FzK3DPtJHupVoGKpb_DZFn0pblThVLlaZ8R1VNNU5s3312FabGwZbfc982ozGFkkpvWaYig8z0gSptjdbHE");'>
+        <div
+          class="layout-content-container flex flex-col max-w-md w-full p-6 bg-background-light dark:bg-background-dark rounded-xl shadow-2xl">
+          <div class="flex flex-col items-center gap-4 py-3">
+            <div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-full" data-alt="Restaurant Logo"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGsPyZECUBwMTSwExm2E2ZCA8qExNonJsTXAYuPfHdK4_V7pA2RNuj98JVWNDDtDvCcVqnnxHSFRs02PKEny3x6tY_AFyxY7diUbkkVzDqVSUgT8jM5ct6ylFq5NIVK1jW3q43ZTFkcOAHr8mW72Oc38W4nT0uUFqMTkYbVS-zV94z1QmnjdN0n9W0xflXfZzwT5DBEN5VtWsS3gvjj0xJJ2E9R2ENuehP7tuHNawwYP5zArk_K1zlaMggGN48guhdHcpY4VJP9Gc");'>
+            </div>
+            <h1 class="text-center text-3xl font-bold text-[#181211] dark:text-white">Admin Login</h1>
+            <p class="text-center text-base text-[#896961] dark:text-gray-300">Restaurant Management System</p>
+          </div>
+          <div class="flex flex-col gap-4 py-3">
+            <label class="flex flex-col w-full">
+              <p class="text-[#181211] dark:text-white text-base font-medium leading-normal pb-2">Email</p>
+              <div class="flex w-full flex-1 items-stretch rounded-lg">
+                <span
+                  class="flex items-center justify-center pl-4 pr-2 rounded-l-lg bg-[#f4f1f0] dark:bg-[#2e1d18] text-[#896961] dark:text-gray-400">
+                  <span class="material-symbols-outlined">
+                    mail
+                  </span>
+                </span>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-[#181211] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-[#f4f1f0] dark:bg-[#2e1d18] h-14 placeholder:text-[#896961] dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal"
+                  placeholder="Enter your email" type="email" value="" />
+              </div>
+            </label>
+            <label class="flex flex-col w-full">
+              <p class="text-[#181211] dark:text-white text-base font-medium leading-normal pb-2">Password</p>
+              <div class="flex w-full flex-1 items-stretch rounded-lg">
+                <span
+                  class="flex items-center justify-center pl-4 pr-2 rounded-l-lg bg-[#f4f1f0] dark:bg-[#2e1d18] text-[#896961] dark:text-gray-400">
+                  <span class="material-symbols-outlined">
+                    lock
+                  </span>
+                </span>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-[#181211] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-[#f4f1f0] dark:bg-[#2e1d18] h-14 placeholder:text-[#896961] dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal"
+                  placeholder="Enter your password" type="password" value="" />
+              </div>
+            </label>
+          </div>
+          <div class="px-4 py-2 text-red-700 dark:text-red-500 bg-red-100 dark:bg-red-900/20 rounded-lg hidden">
+            <p class="text-sm font-medium">Invalid email or password.</p>
+          </div>
+          <div class="flex justify-between items-center px-4 py-3">
+            <label class="flex gap-x-3 items-center">
+              <input
+                class="h-5 w-5 rounded border-[#e6dddb] dark:border-gray-600 border-2 bg-transparent text-primary checked:bg-primary checked:border-primary checked:bg-[image:--checkbox-tick-svg] focus:ring-primary/50 focus:ring-offset-0 focus:border-[#e6dddb] focus:outline-none"
+                type="checkbox" />
+              <p class="text-[#181211] dark:text-white text-base font-normal leading-normal">Remember me</p>
+            </label>
+            <a class="text-primary hover:underline text-sm font-medium" href="#">Forgot Password?</a>
+          </div>
+          <div class="p-4">
+            <button id="loginBtn"
+              class="flex w-full items-center justify-center overflow-hidden rounded-lg h-12 px-4 bg-primary text-white text-lg font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors duration-200">
+              <span class="truncate">Login</span>
+            </button>
+          </div>
+          <div class="flex items-center justify-center py-2 hidden">
+            <div class="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  // === JS for Login Button ===
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", function () {
+      window.location.href = "admin_dashboard.html";
+    });
+  </script>
+
+
+
+</body>
+
+</html>

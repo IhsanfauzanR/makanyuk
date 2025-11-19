@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Restaurant Home Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#B85C38",
+                        "secondary": "#F5F5DC",
+                        "accent": "#D4AF37",
+                        "text-dark": "#333333",
+                        "background-light": "#F8F8F8",
+                        "background-dark": "#221410",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200 dark:border-b-gray-700 px-10 py-3 fixed top-0 left-0 right-0 bg-background-light dark:bg-background-dark z-50">
+                <div class="flex items-center gap-4 text-text-dark dark:text-white">
+                    <div class="size-6 text-primary">
+                        <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z"
+                                fill="currentColor" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-text-dark dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">
+                        MakanYuk!</h2>
+                </div>
+                <div class="flex items-center gap-6 ml-auto">
+                    <nav class="hidden md:flex items-center gap-9">
+                        <a class="text-primary text-sm font-bold" href="home_page.html">Home</a>
+                        <a class="text-text-light dark:text-white text-sm font-medium hover:text-primary transition-colors"
+                            href="menu_page.html">Menu</a>
+                        <a class="text-text-light dark:text-white text-sm font-medium hover:text-primary transition-colors"
+                            href="public_voucher_page.html">Vouchers</a>
+                        <a class="text-text-light dark:text-white text-sm font-medium hover:text-primary transition-colors"
+                            href="public_about_us_page.html">About Us</a>
+                    </nav>
+                </div>
+
+                <button id="loginBtn"
+                    class="ml-8 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                    <span class="truncate">login</span>
+                </button>
+        </div>
+        </header>
+        <main class="flex-grow pt-16">
+            <div class="layout-content-container flex flex-col max-w-7xl mx-auto flex-1">
+                <div class="@container">
+                    <div class="@[480px]:p-4">
+                        <div class="flex min-h-[560px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
+                            data-alt="A beautifully set dining table in a cozy restaurant with warm lighting"
+                            style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCFGADGHxqHM0RjG6TpNOSCcKVJCLqd7-rtw54uA4ytPozkI-mO1aR2mA6dBLnx5JjGMhQyqyZpqbSE7coHlWV7mezqaJhXatiIzTPisV-gUDQn_IWljQammAB0x_kXzeTK-AfuJL7agonPZplSKx4ViT4rtpIdd4_v7nggYzVnOu-1YqMO9GiYriJPaG7-xIfuwasKrXwlMlTVqtc0WGMxIg3nEarQOSPz8Rgz91FX-eRo4GpuBRMs_EFecPJb0-f787KFq375dd0");'>
+                            <div class="flex flex-col gap-4 text-center">
+                                <h1
+                                    class="text-white text-5xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                                    Gourmet Grove</h1>
+                                <h2
+                                    class="text-white text-lg font-normal leading-normal @[480px]:text-xl @[480px]:font-normal @[480px]:leading-normal">
+                                    Experience Authentic Flavors</h2>
+                            </div>
+                            <button id="ExploreMenuBtn"
+                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em]">
+                                <span class="truncate">Explore Our Menu</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h3 class="text-3xl font-bold text-text-dark dark:text-white text-center mt-12">Best Seller</h3>
+                <div class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 p-4">
+
+                    <div
+                        class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group shadow-md">
+                        <div
+                            class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Favorite</div>
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">Cumi
+                                Kripsi asin pedas</p>
+                            <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                Toasted bread with fresh tomatoes, garlic, and basil.</p>
+                            <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                Rp55.000,-</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group shadow-md">
+                        <div
+                            class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Favorite</div>
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">Cumi
+                                Kripsi asin pedas</p>
+                            <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                Toasted bread with fresh tomatoes, garlic, and basil.</p>
+                            <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                Rp55.000,-</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group shadow-md">
+                        <div
+                            class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Favorite</div>
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">Cumi
+                                Kripsi asin pedas</p>
+                            <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                Toasted bread with fresh tomatoes, garlic, and basil.</p>
+                            <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                Rp55.000,-</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group shadow-md">
+                        <div
+                            class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Favorite</div>
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">Cumi
+                                Kripsi asin pedas</p>
+                            <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                Toasted bread with fresh tomatoes, garlic, and basil.</p>
+                            <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                Rp55.000,-</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group shadow-md">
+                        <div
+                            class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Favorite</div>
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">Cumi
+                                Kripsi asin pedas</p>
+                            <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                Toasted bread with fresh tomatoes, garlic, and basil.</p>
+                            <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                Rp55.000,-</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="relative flex flex-col gap-3 pb-3 bg-white/50 dark:bg-black/20 rounded-xl overflow-hidden group shadow-md">
+                        <div
+                            class="absolute top-3 right-3 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Favorite</div>
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg7H3Ay56ybsRv5Fo4JBZHguOQNE79obsdscj4weUmJIT6dv0e8sFJoNY_t5_I8w3gf6rn7wz4f7siF_1gX8Rrzar-AwPpj6KqPfXfqC1opS8LRu1-8RzLDlWPlQYsGM4wM05-KPrBRMlnX0jCe4khadwShUksY29FcPRPLLs5YjQAp9U2COttA2CWTbFtRUIGdtqexyMmcnIMWUsvpy3cDQ2DLIVOz8Qa8Wm_M09xaI6P1_qP_vo4wtNFK0tdR3e1ZIb-uaS_8uU");'>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">Cumi
+                                Kripsi asin pedas</p>
+                            <p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
+                                Toasted bread with fresh tomatoes, garlic, and basil.</p>
+                            <p class="text-text-light dark:text-text-dark text-base font-bold leading-normal mt-2">
+                                Rp55.000,-</p>
+                        </div>
+                    </div>
+
+                </div>
+
+        </main>
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300"
+            id="popup-ad">
+            <div
+                class="bg-white dark:bg-background-dark rounded-xl shadow-2xl p-8 max-w-md w-full relative transform transition-transform duration-300 scale-95">
+                <button
+                    class="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-text-dark dark:hover:text-white"
+                    id="close-popup">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                <img alt="A delicious looking dish" class="rounded-lg mb-6 w-full h-48 object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpUVVrTa0OxY0agihytmfdn4MG0R6t49suVzTrt-bHkv-qfvc6vf6o8Yr0tt-Dqw14hXV4PrUvfrVXM4UZHObRe5qyzGbz3ht9HHTzQkdvtAqss56bikT9Ym8XVeSkKt5-2NmvI9hVw805wFyLeJD059x1rzZTUckffhfRyOxHaZsX2d_M0HIv5D3T-AxE_84AVaXOj99e4_w8U2YuDl-k1Ha6Ro2iKUqnrh3ibrat3iUTqw5fvbZRj4wpHEy1szhSbMRk_cGcXzs" />
+                <h3 class="text-2xl font-bold text-text-dark dark:text-white mb-2 text-center">Get 10% Off Your First
+                    Order!</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-center mb-6">Join our mailing list to receive exclusive
+                    offers and updates.</p>
+                <button
+                    class="w-full flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em]">
+                    <span class="truncate">Claim Offer</span>
+                </button>
+            </div>
+        </div>
+        <footer
+            class="bg-secondary/50 dark:bg-background-dark dark:border-t dark:border-gray-700 px-5 py-10 text-center">
+            <div class="max-w-7xl mx-auto @container">
+                <div class="flex flex-wrap items-start justify-center gap-8 @[480px]:flex-row @[480px]:justify-around">
+                    <div
+                        class="flex flex-col items-center @[480px]:items-start gap-2 min-w-40 text-center @[480px]:text-left">
+                        <h4 class="font-bold text-lg text-text-dark dark:text-white">Operating Hours</h4>
+                        <p class="text-gray-700 dark:text-gray-300 text-base font-normal leading-normal">Daily: 11am -
+                            10pm</p>
+                    </div>
+                    <div
+                        class="flex flex-col items-center @[480px]:items-start gap-2 min-w-40 text-center @[480px]:text-left">
+                        <h4 class="font-bold text-lg text-text-dark dark:text-white">Address</h4>
+                        <p class="text-gray-700 dark:text-gray-300 text-base font-normal leading-normal">123 Foodie
+                            Lane, Gourmet City</p>
+                        <a class="text-primary hover:underline" href="#">Get Directions</a>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 min-w-40">
+                        <h4 class="font-bold text-lg text-text-dark dark:text-white">Share</h4>
+                        <img class="rounded-lg" data-alt="QR code for sharing the website link"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8PYaBO4S8RvE21loFFSbXMtS6HXDbTQPw5LkcXXgtaQt3l01T7_bGtqdf9I0xHDvABk8eIez--kdCWHvNNEWte0jvTAsnDe9lNwHeGTFvpiMS0XgpfB4_IIO-1c853V31DvAoOJ5JZgkKlJ7HpRptO2zDon9bjKINKLZ24gJxE07rqzdSkHH6sbfpM7tvWCA_T6jr8Xs_0Za11CKAk5DtgHtMvq2JeZ2exqBNUs58RZkp04wRBwCyJv7uC2pxumWCbrtDuJn-uGM" />
+                    </div>
+                </div>
+                <div class="flex justify-center gap-6 mt-8 mb-4">
+                    <a href="#">
+                        <img class="dark:invert w-6 h-6"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbCyjModdrr1Uof7C65RYku5sooLd-U9bsfIoqyUTl6WbFJB5jRXOr5MXdFFGeSNh1gtwxm9dzCWHWCTrspImySImxRUAq8RsCIAaOwnEBU2f7ToLnM_n-edDLTVGpnBgplhd_yDoriuH72PGvV-l9y6Y4BTj7qWPIwhOcfefYL4_kuUpqaJAFPsjUWdciCT3utHD5cr8UHH8FIaAWo4HZ0dpyxmGtBtZbydRhfamKMQ8kWt8th_RyR0c7Xr_P0xQahtx2o8t2DCM" />
+                    </a>
+                    <a href="#">
+                        <img class="dark:invert w-6 h-6"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbCyjModdrr1Uof7C65RYku5sooLd-U9bsfIoqyUTl6WbFJB5jRXOr5MXdFFGeSNh1gtwxm9dzCWHWCTrspImySImxRUAq8RsCIAaOwnEBU2f7ToLnM_n-edDLTVGpnBgplhd_yDoriuH72PGvV-l9y6Y4BTj7qWPIwhOcfefYL4_kuUpqaJAFPsjUWdciCT3utHD5cr8UHH8FIaAWo4HZ0dpyxmGtBtZbydRhfamKMQ8kWt8th_RyR0c7Xr_P0xQahtx2o8t2DCM" />
+                    </a>
+                    <a href="#">
+                        <img class="dark:invert w-6 h-6"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbCyjModdrr1Uof7C65RYku5sooLd-U9bsfIoqyUTl6WbFJB5jRXOr5MXdFFGeSNh1gtwxm9dzCWHWCTrspImySImxRUAq8RsCIAaOwnEBU2f7ToLnM_n-edDLTVGpnBgplhd_yDoriuH72PGvV-l9y6Y4BTj7qWPIwhOcfefYL4_kuUpqaJAFPsjUWdciCT3utHD5cr8UHH8FIaAWo4HZ0dpyxmGtBtZbydRhfamKMQ8kWt8th_RyR0c7Xr_P0xQahtx2o8t2DCM" />
+                    </a>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">© 2023 Gourmet Grove. All
+                    Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    </div>
+    <script>
+        const popupAd = document.getElementById('popup-ad');
+        const closePopupButton = document.getElementById('close-popup');
+
+        // Show popup on first visit
+        if (!sessionStorage.getItem('visited')) {
+            popupAd.classList.remove('opacity-0', 'pointer-events-none');
+            popupAd.querySelector('div').classList.remove('scale-95');
+            sessionStorage.setItem('visited', 'true');
+        } else {
+            popupAd.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Close popup
+        closePopupButton.addEventListener('click', () => {
+            popupAd.classList.add('opacity-0');
+            popupAd.querySelector('div').classList.add('scale-95');
+            setTimeout(() => {
+                popupAd.classList.add('pointer-events-none');
+            }, 300);
+        });
+
+        // Close popup when clicking outside
+        popupAd.addEventListener('click', (e) => {
+            if (e.target === popupAd) {
+                closePopupButton.click();
+            }
+        });
+
+        document.getElementById("loginBtn").addEventListener("click", function () {
+            window.location.href = "login.html";
+        });
+
+        // Explore Menu
+        document.getElementById("ExploreMenuBtn").addEventListener("click", function () {
+            window.location.href = "menu_page.html";
+        });
+
+
+    </script>
+</body>
+
+</html>

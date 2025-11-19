@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Admin Profile</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1919e6",
+            "background-light": "#f1f5f9",
+            "background-dark": "#111121",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-slate-900 font-display text-slate-800 dark:text-slate-200">
+  <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <div
+      class="flex items-center bg-background-light dark:bg-slate-900 p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-200 dark:border-slate-800">
+      <div id="btnBack"
+        class="flex size-10 shrink-0 items-center justify-center text-slate-800 dark:text-slate-200 cursor-pointer">
+        <span class="material-symbols-outlined text-2xl">arrow_back</span>
+      </div>
+      <h2 class="flex-1 text-center text-lg font-bold tracking-[-0.015em] text-slate-900 dark:text-slate-50">Profil
+        Admin</h2>
+      <div class="flex size-10 shrink-0 items-center"></div>
+    </div>
+    <main class="flex-1 px-4 py-6">
+      <div class="flex flex-col gap-6">
+        <div class="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+          <div class="flex flex-col items-center gap-4 text-center">
+            <div class="relative">
+              <div
+                class="h-24 w-24 rounded-full bg-cover bg-center bg-no-repeat ring-4 ring-white/50 dark:ring-slate-900/50"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-aH12Iops2omjDrqFIUtxmOMM69gba0owsNcAFql9l9WnsvrCBUnPCCSPSykEewZ9MrSAqidzQjGbKvFujvzr1hdokyGT_B22OllsplMtgwVOgOsKckinKLKE67RmZNcn7Qs3slR9VvpD0na6jVBcKzdcduuH0W7p7NtAYDcjlS9_VW1qPrldANfegOQAwW85XZcMvP1he4ieXZN8Q6AQC2I5scClqL_PmlFpRYbEDPZ2gjFhnbCjzL0jxjveXmmaE1ypJsJ6Rw");'>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-xl font-bold text-slate-900 dark:text-slate-50">Alex Doe</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">alex.doe@example.com</p>
+            </div>
+            <span
+              class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 dark:bg-blue-500/10 dark:text-blue-400 dark:ring-blue-400/20">Admin</span>
+          </div>
+        </div>
+        <div class="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+          <form class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-slate-600 dark:text-slate-300" for="fullName">Nama Lengkap</label>
+              <input
+                class="w-full rounded-md border-slate-300 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700 dark:text-slate-50 dark:placeholder:text-slate-500"
+                id="fullName" type="text" value="Alex Doe" />
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-slate-600 dark:text-slate-300" for="email">Email</label>
+              <input
+                class="w-full rounded-md border-slate-300 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700 dark:text-slate-50 dark:placeholder:text-slate-500"
+                id="email" type="email" value="alex.doe@example.com" />
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-slate-600 dark:text-slate-300" for="newPassword">Password
+                Baru</label>
+              <input
+                class="w-full rounded-md border-slate-300 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700 dark:text-slate-50 dark:placeholder:text-slate-500"
+                id="newPassword" placeholder="Masukkan password baru" type="password" />
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-slate-600 dark:text-slate-300" for="confirmPassword">Konfirmasi
+                Password</label>
+              <input
+                class="w-full rounded-md border-slate-300 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700 dark:text-slate-50 dark:placeholder:text-slate-500"
+                id="confirmPassword" placeholder="Konfirmasi password baru" type="password" />
+            </div>
+            <div class="flex items-center justify-end gap-3 pt-2">
+              <button
+                class="w-full rounded-lg bg-slate-100 dark:bg-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-900 dark:text-slate-200 shadow-sm hover:bg-slate-200 dark:hover:bg-slate-600"
+                type="button">Batal</button>
+              <button
+                class="w-full rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                type="submit">Simpan Perubahan</button>
+            </div>
+          </form>
+        </div>
+        <div class="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+          <h3 class="text-base font-semibold text-slate-900 dark:text-slate-50 mb-4">Info Singkat</h3>
+          <div class="flex flex-col gap-3 text-sm">
+            <div class="flex justify-between">
+              <span class="text-slate-500 dark:text-slate-400">Admin ID</span>
+              <span class="font-medium text-slate-800 dark:text-slate-200">ADM-001</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-500 dark:text-slate-400">Role</span>
+              <span class="font-medium text-slate-800 dark:text-slate-200">Admin</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-500 dark:text-slate-400">Terakhir aktif</span>
+              <span class="font-medium text-slate-800 dark:text-slate-200">2 jam yang lalu</span>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm">
+          <h3 class="text-base font-semibold text-slate-900 dark:text-slate-50 mb-4">Aksi Cepat</h3>
+          <div class="flex flex-col gap-3">
+            <button
+              class="flex w-full items-center justify-start gap-3 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">
+              <span class="material-symbols-outlined text-lg">lock</span>
+              <span>Ganti Password</span>
+            </button>
+            <button
+              class="flex w-full items-center justify-start gap-3 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">
+              <span class="material-symbols-outlined text-lg">notifications</span>
+              <span>Kelola Notifikasi</span>
+            </button>
+            <button
+              class="flex w-full items-center justify-start gap-3 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">
+              <span class="material-symbols-outlined text-lg">history</span>
+              <span>Log Aktivitas</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <nav
+      class="sticky bottom-0 z-10 border-t border-slate-200/80 bg-background-light/90 backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90">
+      <div class="mx-auto flex h-16 max-w-md items-center justify-around px-2">
+        <a class="flex flex-col items-center justify-center gap-1.5 text-slate-500 dark:text-slate-400" href="AdminDashboard.html">
+          <span class="material-symbols-outlined text-2xl">dashboard</span>
+          <span class="text-xs font-medium">Dashboard</span>
+        </a>
+        <a class="flex flex-col items-center justify-center gap-1.5 text-primary dark:text-primary" href="ProfilAdmin.html">
+          <span class="material-symbols-outlined text-2xl">account_circle</span>
+          <span class="text-xs font-bold">Profile</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <script>
+  document.getElementById("btnBack").addEventListener("click", function () {
+    window.location.href = "admin_dashboard.html";
+  });
+</script>
+
+
+</body>
+
+</html>

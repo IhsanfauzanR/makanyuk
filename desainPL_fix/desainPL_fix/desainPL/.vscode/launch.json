@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Open public_voucher_page.html",
+            "file": "c:\\Users\\IP 5 Ultra 5\\OneDrive\\Dokumen\\ABILLL\\Semester 5\\Prak IPL\\gabung pt12(2)\\gabung pt1\\public_voucher_page.html"
+        }
+    ]
+}
